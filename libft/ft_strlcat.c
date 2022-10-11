@@ -6,44 +6,47 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 13:16:03 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/04 13:43:55 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/10 12:47:54 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-size_t ft_strlcat( char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-    size_t n;
-    size_t d;
-    
-    if (size <= ft_strlen(dest))
-		return (size + ft_strlen(src));
+	size_t	n;
+	size_t	i;
+
+	if (!dest && size == 0)
+		return ft_strlen(src);
 	n = ft_strlen(dest);
-	d = 0;
-	while (src[d] != '\0' && n + 1 < size)
+	i = 0;
+
+	if (size <= ft_strlen(dest))
+		return (size + ft_strlen(src));
+	
+	while (src[i] != '\0' && n + 1 < size)
 	{
-		dest[n] = src[d];
+		dest[n] = src[i];
 		n++;
-		d++;
+		i++;
 	}
 	dest[n] = '\0';
-	return (ft_strlen(dest) + ft_strlen(&src[d]));
+	return (ft_strlen(dest) + ft_strlen(&src[i]));
 }
 /*
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 
-int main(){
-    char src[] = "hellooo";
-    char dest[10]= "1337";
+int	main(void){
+    char *dest = NULL;
+    char src[10]= "1";
 
-    char src1[] = "hellooo";
-    char dest1[10]= "1337";
+    char *dest1 = NULL;
 
-    printf("%zu, %s\n", ft_strlcat(dest, src, 7), dest);    
-    printf("%zu , %s", strlcat(dest1, src1, 7), dest1);
+	printf("%s, %zu", dest1, strlcat(dest1, src, 0));
+    printf("%s, %zu\n", dest, ft_strlcat(dest, src, 0));    
+    
 
 }
 */

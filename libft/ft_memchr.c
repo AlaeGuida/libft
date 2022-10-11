@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 13:00:59 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/01 12:09:42 by aguida           ###   ########.fr       */
+/*   Created: 2022/10/05 17:58:49 by aguida            #+#    #+#             */
+/*   Updated: 2022/10/08 15:17:18 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	if (c >= 97 && c <= 122)
+	unsigned char	*s;
+	int				i;
+
+	s = (unsigned char *)str;
+	i = 0;
+	while (n > 0)
 	{
-		return (c -= 32);
+		if (s[i] == (unsigned char)c)
+		{
+			return (s + i);
+		}
+		i++;
+		n--;
 	}
-	else
-	{
-		return (c);
-	}
+	return (NULL);
 }
+/*
+#include <stdio.h>
+
+int main ()
+{
+    const char *s = "hello 1337";
+    unsigned const char c = '1';
+   
+   printf("%s\n", ft_memchr(s, c, 10));
+   
+   return (0);
+}*/

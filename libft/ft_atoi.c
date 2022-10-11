@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 13:42:39 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/03 11:50:03 by aguida           ###   ########.fr       */
+/*   Created: 2022/10/06 12:20:37 by aguida            #+#    #+#             */
+/*   Updated: 2022/10/11 11:02:44 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t length)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int	i;
+	int	result;
+	int	sign;
 
 	i = 0;
-	while (i < length)
+	result = 0;
+	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
+		i++;
+	if (str[i] != '\0' && str[i] == '-')
 	{
-		*((char *)str + i) = c;
+		sign = 1;
 		i++;
 	}
-	return (str);
+	else if (str[i] == '+')
+	{
+		i++;
+	}
+	while (str[i] && ft_isdigit(str[i]))
+		result = (result * 10) + (str[i++] - '0');
+	if(sign == 1)
+		return -result;
+	return (result);
 }
 /*
 #include <stdio.h>
@@ -30,11 +44,7 @@ void	*ft_memset(void *str, int c, size_t length)
 
 int	main(void)
 {
-    char str[50];
-    printf("%s\n", str);
-  
-    ft_memset(str, 'A', 5);
-  
-    printf("%s", str);
-    return (0);
+    const char s[] = "-+--+1337";
+    
+    printf("%d", ft_atoi(s));
 }*/
