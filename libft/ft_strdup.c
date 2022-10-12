@@ -1,47 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 15:56:34 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/11 13:24:25 by aguida           ###   ########.fr       */
+/*   Created: 2022/10/11 11:49:45 by aguida            #+#    #+#             */
+/*   Updated: 2022/10/11 13:16:24 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strdup(const char *str)
 {
-	int	i;
+	char	*s;
+	size_t	length;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-		{
-			return ((char *)str + i);
-		}
-		i++;
-	}
-	if (str[i] == c)
-	{
-		return ((char *)str + i);
-	}
-	return (0);
+	length = ft_strlen(str) + 1;
+	s = malloc(sizeof(char) * length);
+	if (!s)
+		return (0);
+	s = ft_memcpy(s, str, length);
+	return (s);
 }
 /*
 #include <stdio.h>
-#include <string.h>
 
-int main (){
-
-   const char s[] = "Hello 1337"; 
-   const char c = '1'; 
-   char *str;
-   str = ft_strchr(s, c);
-   printf("str starting from '%c': %s", c, str);
-   return (0);
-}
-*/
+int	main(void)
+{
+    char src[] = "hello 1337";
+    printf("%s", ft_strdup(src));
+}*/

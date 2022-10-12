@@ -6,7 +6,7 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:42:39 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/03 11:50:03 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/11 13:04:45 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *str, int c, size_t length)
 	i = 0;
 	while (i < length)
 	{
-		*((char *)str + i) = c;
+		*((unsigned char *)str + i) = c;
 		i++;
 	}
 	return (str);

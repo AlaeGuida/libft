@@ -16,15 +16,14 @@ void	*ft_memcpy(void *dest, const void *src, size_t length)
 {
 	char	*cpy_src;
 	char	*cpy_dest;
-	size_t		i;
+	size_t	i;
 
 	cpy_src = (char *)src;
 	cpy_dest = (char *)dest;
 	i = 0;
-
 	if (dest == NULL && src == NULL)
 	{
-		return NULL;
+		return (NULL);
 	}
 	while (i < length)
 	{
@@ -32,12 +31,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t length)
 		i++;
 	}
 	return (dest);
-	
 }
 /*
 #include <stdio.h>
 
-int	main()
+int	main(void)
 {
 	char	dest[20];
 	char	src[] = "1337";

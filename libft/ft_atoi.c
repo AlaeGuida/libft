@@ -34,8 +34,8 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] && ft_isdigit(str[i]))
 		result = (result * 10) + (str[i++] - '0');
-	if(sign == 1)
-		return -result;
+	if (sign == 1)
+		return (-result);
 	return (result);
 }
 /*

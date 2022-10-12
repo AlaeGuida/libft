@@ -6,7 +6,7 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:19:55 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/10 18:48:04 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/12 17:14:08 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,27 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
-	size_t	n;
-	size_t	needle_len;
 	char	*hs;
+	char	*ndl;
+	int		needle_len;
+	size_t	i;
+	long	n;
 
 	hs = (char *)haystack;
+	ndl = (char *)needle;
 	needle_len = ft_strlen(needle);
+	if (ft_strlen(needle) == 0)
+		return (hs);
 	i = 0;
-	
-	if (needle_len == 0 && haystack == needle)
+	n = 0;
+	while (i < len)
 	{
-		return hs;
-	}
-	while (hs[i] != '\0' && i < len)
-	{
-		n = 0;
-		while (hs[i + n] != '\0' && needle[n] != '\0' && hs[i + n] == needle[n] && i + n < len)
+		if (hs[i] == ndl[n])
 			n++;
-		if (n == needle_len)
-		{
-			return (hs + i);
-		}
+		else
+			n = 0;
+		if (needle_len == n)
+			return (((hs + i) - n) + 1);
 		i++;
 	}
 	return (0);
@@ -46,12 +45,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 int	main(void)
 {
-    const char *largestring = NULL;
-    const char *smallstring = "1337";
+	const char *hs = "hello 1337 Med shore martil";
+	const char *ndl = "Med";
 
-	const char *largestring1 = NULL;
-    const char *smallstring1= "1337";
+	const char *hs1 = "hello 1337 Med shore martil";
+	const char *ndl1 = "Med";
 
-    printf("%s\n", ft_strnstr(largestring, smallstring, 20));
-	printf("%s\n", strnstr(largestring1, smallstring1, 20));
+	printf("%s\n", ft_strnstr(hs, ndl, 50));
+	printf("%s\n", strnstr(hs1, ndl1, 50));
 }*/
