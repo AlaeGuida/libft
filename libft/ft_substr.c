@@ -6,7 +6,7 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 11:42:02 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/13 13:11:05 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/15 15:33:39 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	s_len = ft_strlen(s);
 	i = 0;
+	if (!s)
+		return (0);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);

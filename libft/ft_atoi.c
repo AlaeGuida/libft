@@ -6,7 +6,7 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:20:37 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/11 11:02:44 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/14 12:38:56 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	result;
 	int	sign;
+	int	result;
+	int	i;
 
 	i = 0;
 	result = 0;

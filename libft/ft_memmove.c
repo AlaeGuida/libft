@@ -6,7 +6,7 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 09:57:09 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/06 13:22:54 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/17 16:39:03 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ void	*ft_memmove(void *dest, const void *src, size_t length)
 #include <string.h>
 int	main(void)
 {
-	char	d[20]= "123aaa";
+	char	d[20]= "AABBBCCCC";   
 
-    ft_memmove(d + 3, d, 2);
+    ft_memmove(d + 2, d, 20);
     printf("%s\n",d);
     return (0);
-}*/
+}
+*/
