@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 11:42:02 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/18 17:03:42 by aguida           ###   ########.fr       */
+/*   Created: 2022/10/18 12:35:26 by aguida            #+#    #+#             */
+/*   Updated: 2022/10/19 12:58:24 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	s_len;
+	int		i;
+	int		len;
 	char	*str;
 
-	s_len = ft_strlen(s);
 	i = 0;
-	if (!s)
-		return (0);
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (0);
-	while (i < len && start < s_len && s[start] != '\0')
+		return (NULL);
+	while (i < len)
 	{
-		str[i] = s[start];
-		start++;
+		str[i] = f(i, s[i]);
 		i++;
 	}
 	str[i] = '\0';
@@ -36,12 +35,19 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 }
 /*
 #include <stdio.h>
+
+char	f(, char c)
+{
+    return (c + 1);
+}
+
 int	main(void)
 {
-    char str[] = "hello 1337";
-    int start = 6;
-    int length = 4;
+    char str[] = "abc";
+    char *str1;
+
+    str1 = ft_strmapi(str, f);
+   
+    printf("%s\n", str1);
     
-    char *result = ft_substr(str, start, length);
-    printf("%s\n", result);
 }*/

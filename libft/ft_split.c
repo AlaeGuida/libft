@@ -6,7 +6,7 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 11:04:09 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/17 16:41:11 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/19 15:57:52 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	**ft_split(char const *s, char c)
 	int		n;
 	int		y;
 
-	arr = (char **)ft_calloc((words_count(s, c) + 1) , (sizeof(char *)));
+	arr = (char **)ft_calloc((words_count(s, c) + 1), (sizeof(char *)));
 	if (!arr)
 		return (NULL);
 	n = 0;
@@ -62,7 +62,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s != '\0')
 		{
-			arr[n] = (char *)malloc((word_len(s, 0, c) + 1)*(sizeof(char)));
+			arr[n] = (char *)malloc((word_len(s, 0, c) + 1) * (sizeof(char)));
 			if (!arr[n])
 				return (NULL);
 			y = 0;
@@ -77,9 +77,12 @@ char	**ft_split(char const *s, char c)
 #include <stdio.h>
 int	main(void)
 {
-	char **split = ft_split("hello 1337 Med", ' ');
-	int i = 0;
-	while (i < 4)
+	char	**split;
+	int		i;
+
+	split = ft_split("hello 1337 Med mm", ' ');
+	i = 0;
+	while (i < 8)
 	{
 		printf("word %d: %s\n", i, split[i]);
 		i++;

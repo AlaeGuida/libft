@@ -6,7 +6,7 @@
 /*   By: aguida <aguida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 10:39:27 by aguida            #+#    #+#             */
-/*   Updated: 2022/10/06 14:09:39 by aguida           ###   ########.fr       */
+/*   Updated: 2022/10/19 18:58:05 by aguida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);
 
 char	*ft_strdup(const char *s1);
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 char	*ft_strjoin(char const *s1, char const *s2);
 
